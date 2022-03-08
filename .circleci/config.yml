@@ -1,7 +1,5 @@
 version: 2.1
 
-#### This is the forkeeeee
-
 jobs:
   premier:
     docker:
@@ -20,7 +18,6 @@ jobs:
                    echo job2
                    echo << pipeline.project.git_url >>
                    echo ${CIRCLE_USERNAME}
-                   echo << pipeline.project.git_url >>
                                       
  
   troisieme:
@@ -32,27 +29,14 @@ jobs:
                    echo jobnum3
                                      
 workflows:
-  version: 2
-  papa:
-    when:
-      equal: [ "https://github.com/yaningo/dockercli", << pipeline.project.git_url >> ]
-     # equal: [ "tech5irl", ${CIRCLE_USERNAME} ]
-    jobs:
-      - premier
-          
-  # papu:
-  #  jobs:
-  #    - premier
+  papu:
+   jobs:
+     - premier
   
   tata:
     jobs:
       - deuxieme
       
-#  tata:
-#    jobs:
-#      - deuxieme:
-#          context: Lecontext
   lala:
     jobs:
-      - troisieme:
-          context: Lecontext
+      - troisieme
